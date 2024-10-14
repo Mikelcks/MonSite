@@ -1,0 +1,135 @@
+/* home.module.scss */
+.homeWrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Styles pour la vidéo en arrière-plan */
+.videoBackground {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Prend la hauteur complète de la fenêtre */
+  overflow: hidden;
+}
+
+.video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: 0; /* Passe le z-index à 0 pour éviter que la vidéo soit masquée */
+}
+
+.overlayText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 1;
+  padding: 20px;
+  font-size: 1.5rem;
+}
+
+.introText {
+  padding: 20px;
+  text-align: center;
+  background-color: #f0f0f0;
+}
+
+.content {
+  padding: 0;
+  background-color: black;
+}
+
+.imageTextRow {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  width: 100vw;
+  position: relative;
+}
+
+.image {
+  position: relative;
+  width: 50%;
+  max-width: 600px; 
+  padding: 20px;
+  background-color: #5b5b5b; 
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50vw;
+    width: calc(100% + 50vw);
+    height: 100%;
+    background-color: #5b5b5b;
+    z-index: -1;
+  }
+
+  .png {
+    max-width: 200px;
+  }
+}
+
+.text {
+  position: relative;
+  width: 50%;
+  max-width: 600px;
+  padding: 20px;
+  background-color: #444444;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -50vw;
+    width: calc(100% + 50vw);
+    height: 100%;
+    background-color: #444444;
+    z-index: -1;
+  }
+
+  h2 {
+    color: #32CD32;
+  }
+  
+  p {
+    color: white;
+  }
+  
+  .separator {
+    border: none;
+    height: 1px;
+    width: 40%;
+    background-color: #32CD32;
+    margin: 10px 0;
+  }
+  
+  a {
+    color: white;
+  }
+}
+
+.bottomText {
+  padding: 50px 20px;
+  background-color: #333;
+  color: white;
+  text-align: center;
+}
+
+.footer {
+  padding: 20px;
+  background-color: #222;
+  color: white;
+  text-align: center;
+}
