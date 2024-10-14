@@ -73,9 +73,12 @@
   flex-direction: column; /* Aligne le contenu dans le sens de la colonne */
 }
 
-.reverse .textWrapper {
+.textWrapperRight {
   text-align: right; /* Texte aligné à droite pour le wrapper inversé */
+  display: flex;
+  flex: 1;
   justify-content: flex-end; /* Aligne le contenu textuel à droite */
+  background-color: #444444;
 }
 
 .image,
@@ -101,6 +104,8 @@
 
 .text {
   background-color: #444444;
+  display: flex;
+  flex-direction: column;
 
   h2 {
     color: #32CD32; /* Couleur du titre */
@@ -121,6 +126,10 @@
   a {
     color: white;
   }
+}
+
+.textWrapperRight .text {
+  align-items: flex-end;
 }
 
 .bottomText {

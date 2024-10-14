@@ -39,7 +39,7 @@ function Home() {
     </div>
 
     <div className={`${styles.imageTextRow} ${styles.reverse}`}>
-        <div className={styles.textWrapper}>
+        <div className={styles.textWrapperRight}>
             <div className={styles.text}>
                 <h2>PERFORMANCE & QUALITÉ</h2>
                 <div className={styles.separator}></div>
