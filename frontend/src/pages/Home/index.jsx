@@ -8,7 +8,6 @@ import styles from './home.module.scss';
 function Home() {
   return (
     <div className={styles.homeWrapper}>
-      {/* La vidéo de fond */}
       <div className={styles.videoBackground}>
         <video autoPlay loop muted className={styles.video} playsInline>
           <source src={videoSrc} type="video/mp4" />
@@ -76,17 +75,9 @@ function Home() {
     </div>
 </section>
 
-
-
-
-
-      {/* Bottom Text */}
       <section className={styles.bottomText}>
         <p>Additional information or call-to-action text.</p>
       </section>
-
-      {/* Footer */}
-      <footer className={styles.footer}>FOOTER</footer>
     </div>
   );
 }

@@ -1,16 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import styles from './footer.module.scss';
 
 function Navbar() {
     return (
         <nav>
-            <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/services">Services</Link></li>
-                <li><Link to="/portfolio">Portfolio</Link></li>
-                <li><Link to="/bio">Bio</Link></li>
-                <li><Link to="/contact">Contact</Link></li>
-            </ul>
+            <p>2024 © LOCKS Mike - Tous droits reservés</p>
         </nav>
     );
 }

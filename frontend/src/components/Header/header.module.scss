@@ -4,6 +4,7 @@
     align-items: center;
     padding: 10px 30px;
     margin: 0;
+    background: linear-gradient(to bottom, #333333, #000000);
 }
 
 .title {
@@ -57,6 +58,10 @@
                 opacity: 1;
                 transform: translateX(0);
             }
+        }
+
+        &.active {
+            color: #32CD32;
         }
     }
 }
