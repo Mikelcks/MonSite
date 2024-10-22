@@ -1,12 +1,9 @@
-// app.js
 const express = require('express');
 const path = require('path');
 require('dotenv').config();
 
 const projectRoutes = require('./routes/project');
 const userRoutes = require('./routes/user');
-const path = require('path');
-const { error } = require('console');
 
 const app = express();
 
@@ -24,6 +21,8 @@ app.use((req, res, next) => {
 // Utiliser les routes
 app.use('/api/projects', projectRoutes);
 app.use('/api/auth', userRoutes);
-app.use('/images', express.static(path.join(__dirname, 'images')));
+
+// Middleware pour servir les fichiers statiques
+app.use('/assets', express.static(path.join(__dirname, 'src/assets'))); // Ajout de cette ligne
 
 module.exports = app;
