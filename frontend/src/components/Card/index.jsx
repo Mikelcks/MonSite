@@ -1,10 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
+/* eslint-disable jsx-a11y/img-redundant-alt */
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styles from './card.module.scss';
 
 const Card = ({ url, title, type, description, pictures }) => {
     const [isVisible, setIsVisible] = useState(false);
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isLightboxOpen, setIsLightboxOpen] = useState(false);
     const cardRef = useRef(null);
 
     useEffect(() => {
@@ -29,55 +31,104 @@ const Card = ({ url, title, type, description, pictures }) => {
         };
     }, []);
 
+    // Stop image carousel when lightbox is open
     useEffect(() => {
+        if (isLightboxOpen) return;
+
         const interval = setInterval(() => {
-            setCurrentImageIndex((prevIndex) => (prevIndex + 1) % pictures.length);
-        }, 3000); // Change image every 3 seconds
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % pictures.length);
+        }, 3000);
 
         return () => clearInterval(interval);
-    }, [pictures.length]);
+    }, [pictures.length, isLightboxOpen]);
 
-    const handleClick = (e) => {
-        e.preventDefault();
-        window.open(url, '_blank');
+    const handleImageClick = (e) => {
+        e.stopPropagation();
+        setIsLightboxOpen(true);
+    };
+
+    const handleLightboxClose = () => {
+        setIsLightboxOpen(false);
+    };
+
+    const handleLinkClick = () => {
+        if (!isLightboxOpen) {
+            window.open(url, '_blank');
+        }
+    };
+
+    // Functions to go to previous and next images
+    const goToPrevious = (e) => {
+        e.stopPropagation();
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + pictures.length) % pictures.length);
+    };
+
+    const goToNext = (e) => {
+        e.stopPropagation();
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % pictures.length);
     };
 
     return (
-        <a
-            href={url}
-            onClick={handleClick}
-            style={{ textDecoration: 'none' }}
-            className={styles.cardWrapper}
-        >
+        <>
             <div
-                className={`${styles.cardContent} ${isVisible ? styles.fadeIn : ''}`}
-                ref={cardRef}
+                onClick={handleLinkClick}
+                style={{ textDecoration: 'none' }}
+                className={styles.cardWrapper}
             >
-                <div className={styles.textContainer}>
-                    <h3 className={styles.cardTitle}>{title}</h3>
-                    <p className={styles.cardType}>Type : {type}</p>
-                    <p className={styles.cardDescription}>{description}</p>
-                </div>
-                
-                <div className={styles.cardPicturesContainer}>
-                    {pictures.map((picture, index) => (
-                        // eslint-disable-next-line jsx-a11y/img-redundant-alt
-                        <img
-                            key={index}
-                            src={picture}
-                            alt={`${title} image ${index + 1}`}
-                            className={`${styles.cardPictures} ${
-                                index === currentImageIndex ? styles.active : ''
-                            } ${
-                                index === (currentImageIndex - 1 + pictures.length) % pictures.length
-                                    ? styles.previous
-                                    : ''
-                            }`}
-                        />
-                    ))}
+                <div
+                    className={`${styles.cardContent} ${isVisible ? styles.fadeIn : ''}`}
+                    ref={cardRef}
+                >
+                    <div className={styles.textContainer}>
+                        <h3 className={styles.cardTitle}>{title}</h3>
+                        <p className={styles.cardType}>Type : {type}</p>
+                        <p className={styles.cardDescription}>{description}</p>
+                    </div>
+                    
+                    <div className={styles.carouselContainer}>
+                        <div
+                            className={styles.imageWrapper}
+                            style={{
+                                transform: `translateX(-${currentIndex * 100}%)`,
+                                transition: 'transform 0.5s ease-in-out',
+                            }}
+                        >
+                            {pictures.map((picture, index) => (
+                                <div key={index} style={{ flex: '0 0 100%' }}>
+                                    <img
+                                        className={styles.cardPictures}
+                                        src={picture}
+                                        alt={`${title} image ${index + 1}`}
+                                        onClick={handleImageClick}
+                                    />
+                                </div>
+                            ))}
+                            {pictures.length > 1 && (
+                                <div style={{ flex: '0 0 100%' }}>
+                                    <img className={styles.cardPictures} src={pictures[0]} alt="duplicate-first" />
+                                </div>
+                            )}
+                        </div>
+                    </div>
                 </div>
             </div>
-        </a>
+
+            {/* Lightbox */}
+            {isLightboxOpen && (
+                <div className={styles.lightboxOverlay} onClick={handleLightboxClose}>
+                    <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
+                        <button className={styles.prevArrow} onClick={goToPrevious}>❮</button>
+                        <img
+                            src={pictures[currentIndex]}
+                            alt={`${title} enlarged`}
+                            className={styles.lightboxImage}
+                        />
+                        <button className={styles.nextArrow} onClick={goToNext}>❯</button>
+                        <button className={styles.closeButton} onClick={handleLightboxClose}>✖</button>
+                    </div>
+                </div>
+            )}
+        </>
     );
 };
 
