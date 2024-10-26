@@ -4,6 +4,7 @@ import styles from './card.module.scss';
 
 const Card = ({ url, title, type, description, pictures }) => {
     const [isVisible, setIsVisible] = useState(false);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const cardRef = useRef(null);
 
     useEffect(() => {
@@ -28,6 +29,15 @@ const Card = ({ url, title, type, description, pictures }) => {
         };
     }, []);
 
+    // Effect for the image slideshow
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prevIndex) => (prevIndex + 1) % pictures.length);
+        }, 3000); // Change image every 3 seconds
+
+        return () => clearInterval(interval); // Clear interval on component unmount
+    }, [pictures.length]);
+
     const handleClick = (e) => {
         e.preventDefault();
         window.open(url, '_blank');
@@ -49,7 +59,11 @@ const Card = ({ url, title, type, description, pictures }) => {
                     <p className={styles.cardType}>Type : {type}</p>
                     <p className={styles.cardDescription}>{description}</p>
                 </div>
-                <img src={pictures} alt={title} className={styles.cardPictures} />
+                <img
+                    src={pictures[currentImageIndex]} // Display the current image
+                    alt={`${title} image ${currentImageIndex + 1}`}
+                    className={styles.cardPictures}
+                />
             </div>
         </a>
     );
@@ -60,7 +74,7 @@ Card.propTypes = {
     title: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    pictures: PropTypes.string.isRequired,
+    pictures: PropTypes.arrayOf(PropTypes.string).isRequired, // Expect an array of images
 };
 
 export default Card;
