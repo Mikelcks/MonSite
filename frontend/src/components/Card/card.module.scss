@@ -7,7 +7,7 @@
   width: 45%;
   min-height: 500px;
   min-width: 350px;
-  border: solid  1px #FF8C00;
+  border: solid 1px #ff8c00;
   border-radius: 20px;
 
   &:hover {
@@ -29,23 +29,44 @@
   max-width: 80%;
 }
 
-.cardPictures {
-  z-index: 1;
+.cardPicturesContainer {
+  position: relative;
+  width: 100%;
   max-width: 90%;
-  max-height: 20rem;
+  height: 20rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardPictures {
+  position: absolute;
+  top: 0;
+  left: 100%; /* Position de départ en dehors de l'écran */
+  max-width: 100%;
   height: auto;
   border-radius: 10px;
-  transition: opacity 1s ease-in-out;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+  opacity: 0; /* Opacité à 0 pour permettre la transition */
+
+  &.active {
+    left: 0; /* Image courante glisse au centre */
     opacity: 1;
-    &.fadeIn {
-        opacity: 1;
-    }
+    transform: translateX(0);
+  }
+
+  &.previous {
+    left: -100%; /* Image précédente glisse vers la gauche */
+    opacity: 1;
+    transform: translateX(-100%);
+  }
 }
 
 .cardTitle {
-  color: #FF8C00;
+  color: #ff8c00;
   font-size: 24px;
-  font-weight: 300 ;
+  font-weight: 300;
 }
 
 .cardWrapper a {
@@ -64,12 +85,12 @@
 
 @keyframes fadeInUp {
   0% {
-      opacity: 0;
-      transform: translateY(40px);
+    opacity: 0;
+    transform: translateY(40px);
   }
   100% {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

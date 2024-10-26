@@ -29,13 +29,12 @@ const Card = ({ url, title, type, description, pictures }) => {
         };
     }, []);
 
-    // Effect for the image slideshow
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentImageIndex((prevIndex) => (prevIndex + 1) % pictures.length);
         }, 3000); // Change image every 3 seconds
 
-        return () => clearInterval(interval); // Clear interval on component unmount
+        return () => clearInterval(interval);
     }, [pictures.length]);
 
     const handleClick = (e) => {
@@ -59,11 +58,24 @@ const Card = ({ url, title, type, description, pictures }) => {
                     <p className={styles.cardType}>Type : {type}</p>
                     <p className={styles.cardDescription}>{description}</p>
                 </div>
-                <img
-                    src={pictures[currentImageIndex]} // Display the current image
-                    alt={`${title} image ${currentImageIndex + 1}`}
-                    className={styles.cardPictures}
-                />
+                
+                <div className={styles.cardPicturesContainer}>
+                    {pictures.map((picture, index) => (
+                        // eslint-disable-next-line jsx-a11y/img-redundant-alt
+                        <img
+                            key={index}
+                            src={picture}
+                            alt={`${title} image ${index + 1}`}
+                            className={`${styles.cardPictures} ${
+                                index === currentImageIndex ? styles.active : ''
+                            } ${
+                                index === (currentImageIndex - 1 + pictures.length) % pictures.length
+                                    ? styles.previous
+                                    : ''
+                            }`}
+                        />
+                    ))}
+                </div>
             </div>
         </a>
     );
@@ -74,7 +86,7 @@ Card.propTypes = {
     title: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    pictures: PropTypes.arrayOf(PropTypes.string).isRequired, // Expect an array of images
+    pictures: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default Card;
