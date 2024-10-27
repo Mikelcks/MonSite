@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './bio.module.scss';
+import Skills from '../../components/Skills/index';
 
 function Bio() {
     return (
@@ -50,7 +51,7 @@ function Bio() {
             </div>
             <div className={`${styles.formationsContainer} ${styles.categoriesContainer}`}>
                 <div className={styles.titleWrapper}>
-                    <h2>FORMAITONS</h2>
+                    <h2>FORMATONS</h2>
                 </div>
                 <h3>2015 - 2016 | Licence Professionnelle MCPA <br />
                     IUT Génie Mécanique, Metz Saulcy
@@ -69,6 +70,22 @@ function Bio() {
                 <div className={styles.titleWrapper}>
                     <h2>COMPÉTENCES</h2>
                 </div>
+                    <h3>Techniques</h3>
+                    <div className={styles.skillsContainer}>
+                        <Skills />
+                    </div>
+                    <div className={styles.sideSkillsContainer}>
+                        <div className={styles.languagesContainer}>
+                            <h3>Langues</h3>
+                            <p>Français | Natif</p>
+                            <p>Anglais</p>
+                        </div>
+                        <div className={styles.othersContainer}>
+                            <h3>Autres</h3>
+                            <p>Français | Natif</p>
+                            <p>Anglais</p>
+                        </div>
+                    </div>
             </div>
             <div className={styles.separatorContainer}>
                 <div className={styles.separator} />

@@ -1,5 +1,6 @@
 [
     {
+		"id": 1,
         "url": "https://github.com/Mikelcks/OpenClassrooms_ML.git",
 		"title": "Projet scolaire - Booki",
 		"type": "HTML - CSS",
@@ -13,6 +14,7 @@
 		]
 	},
     {
+		"id": 2,
         "url": "https://github.com/Mikelcks/OC_Projet_3_Sophie_Buel.git",
 		"title": "Projet scolaire - Sophie Buel",
 		"type": "Frontend - JavaScript",
@@ -24,16 +26,19 @@
 		]
 	},
 	{
+		"id": 3,
         "url": "https://github.com/Mikelcks/OC_Projet_5_Nina_Carducci.git",
 		"title": "Projet scolaire - Nina Carducci",
 		"type": "Débug & Optimisation",
 		"description": "Débuggage du site web et optimisation du SEO ainsi que des images importées sur le site.",
 		"pictures": [
 		"https://raw.githubusercontent.com/Mikelcks/MonSite/refs/heads/main/frontend/src/assets/images_website/Nina_Carducci/Nina_Carducci1.webp",
-		"https://raw.githubusercontent.com/Mikelcks/MonSite/refs/heads/main/frontend/src/assets/images_website/Nina_Carducci/Nina_Carducci2.webp"
+		"https://raw.githubusercontent.com/Mikelcks/MonSite/refs/heads/main/frontend/src/assets/images_website/Nina_Carducci/Nina_Carducci2.webp",
+		"https://raw.githubusercontent.com/Mikelcks/MonSite/refs/heads/main/frontend/src/assets/images_website/Nina_Carducci/Nina_Carducci3.webp"
 		]
 	},
     {
+		"id": 4,
         "url": "https://github.com/Mikelcks/OC_Projet_6_Kasa.git",
 		"title": "Projet scolaire - Kasa",
 		"type": "Frontend - React",
@@ -49,6 +54,7 @@
 		]
 	},
 	{
+		"id": 5,
         "url": "https://github.com/Mikelcks/P7_MonVieuxGrimoire.git",
 		"title": "Projet scolaire - Mon vieux grimoire",
 		"type": "Backend - Node.js / Express",
