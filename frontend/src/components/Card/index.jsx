@@ -7,7 +7,11 @@ const Card = ({ url, title, type, description, pictures }) => {
     const [isVisible, setIsVisible] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+    const [isTransitioning, setIsTransitioning] = useState(true);
     const cardRef = useRef(null);
+
+    // Add a duplicate of the first image at the end
+    const extendedPictures = [...pictures, pictures[0]];
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -31,16 +35,32 @@ const Card = ({ url, title, type, description, pictures }) => {
         };
     }, []);
 
-    // Stop image carousel when lightbox is open
+    // Image carousel with continuous effect
     useEffect(() => {
         if (isLightboxOpen) return;
 
         const interval = setInterval(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % pictures.length);
+            setCurrentIndex((prevIndex) => {
+                // If reaching the duplicated last image, reset to the first without transition
+                if (prevIndex === pictures.length) {
+                    setIsTransitioning(false);
+                    return 0;
+                }
+                setIsTransitioning(true);
+                return prevIndex + 1;
+            });
         }, 3000);
 
         return () => clearInterval(interval);
     }, [pictures.length, isLightboxOpen]);
+
+    // Reset the transition effect on reset to the first image
+    useEffect(() => {
+        if (!isTransitioning) {
+            const timeout = setTimeout(() => setIsTransitioning(true), 50); // Small delay for smooth reset
+            return () => clearTimeout(timeout);
+        }
+    }, [isTransitioning]);
 
     const handleImageClick = (e) => {
         e.stopPropagation();
@@ -90,10 +110,10 @@ const Card = ({ url, title, type, description, pictures }) => {
                             className={styles.imageWrapper}
                             style={{
                                 transform: `translateX(-${currentIndex * 100}%)`,
-                                transition: 'transform 0.5s ease-in-out',
+                                transition: isTransitioning ? 'transform 0.5s ease-in-out' : 'none',
                             }}
                         >
-                            {pictures.map((picture, index) => (
+                            {extendedPictures.map((picture, index) => (
                                 <div key={index} style={{ flex: '0 0 100%' }}>
                                     <img
                                         className={styles.cardPictures}
@@ -103,11 +123,6 @@ const Card = ({ url, title, type, description, pictures }) => {
                                     />
                                 </div>
                             ))}
-                            {pictures.length > 1 && (
-                                <div style={{ flex: '0 0 100%' }}>
-                                    <img className={styles.cardPictures} src={pictures[0]} alt="duplicate-first" />
-                                </div>
-                            )}
                         </div>
                     </div>
                 </div>

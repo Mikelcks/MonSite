@@ -44,6 +44,8 @@
 .imageWrapper {
   display: flex;
   transition: transform 0.5s ease-in-out;
+  max-height: 400px;
+  width: auto;
 }
 
 .imageWrapper > div {
