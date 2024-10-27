@@ -82,8 +82,10 @@ function Bio() {
                         </div>
                         <div className={styles.othersContainer}>
                             <h3>Autres</h3>
-                            <p>Français | Natif</p>
-                            <p>Anglais</p>
+                            <p>Pack Office</p>
+                            <p>SolidWorks</p>
+                            <p>CATIA V5</p>
+                            <p>Autocad</p>
                         </div>
                     </div>
             </div>

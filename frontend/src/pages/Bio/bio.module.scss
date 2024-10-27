@@ -83,14 +83,14 @@ p {
         padding: 0;
         justify-content: space-around;
 
-        .languagesContainer {
+        .languagesContainer,
+        .othersContainer {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
             margin: 0;
             padding: 0;
+            align-items: center;
+            justify-content: baseline;
             
 
             & > h3 {
