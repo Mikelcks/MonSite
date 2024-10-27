@@ -89,14 +89,14 @@ function Bio() {
                         </div>
                     </div>
             </div>
-            <div className={styles.separatorContainer}>
+            {/* <div className={styles.separatorContainer}>
                 <div className={styles.separator} />
             </div>
             <div className={`${styles.interetsContainer} ${styles.categoriesContainer}`}>
                 <div className={styles.titleWrapper}>
                     <h2>CENTRES D'INTÉRÊTS</h2>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }
