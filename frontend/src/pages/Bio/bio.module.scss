@@ -1,0 +1,58 @@
+p {
+    margin-left: 1rem;
+}
+
+.globalContainer {
+    margin: 0 30px;
+}
+
+.titleWrapper {
+    display: flex;
+    position: relative;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.separatorContainer {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.separator {
+    height: 0.2px;
+    background-color: #999999;
+    width: 40%;
+    max-width: 600px;
+}
+.generalContainer {
+    padding: 20px;
+}
+
+.categoriesContainer {
+    margin: 20px 0;
+}
+
+.titleContentWrapper {
+    display: flex; 
+    justify-content: space-between;
+}
+
+.textContainer {
+    flex: 1;
+    margin-right: 20px;
+    text-align: center;
+}
+
+.imageContainer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageContainer img {
+    max-width: 100%;
+    height: auto;
+}

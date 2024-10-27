@@ -113,7 +113,6 @@ const Card = ({ url, title, type, description, pictures }) => {
                 </div>
             </div>
 
-            {/* Lightbox */}
             {isLightboxOpen && (
                 <div className={styles.lightboxOverlay} onClick={handleLightboxClose}>
                     <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>

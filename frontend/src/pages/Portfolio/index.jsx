@@ -14,9 +14,8 @@ function Portfolio() {
     <div className={styles.homeWrapper}>
       <div className={styles.homeContainer}>
         <div className={styles.titleWrapper}>
-          <div className={styles.titleOverlay}></div>
-          <h2 className={styles.styledTitle}>
-            Création de site web
+          <h2>
+            Projets scolaires
           </h2>
         </div>
         <div className={styles.galleryWrapper}>
@@ -30,6 +29,12 @@ function Portfolio() {
               pictures={item.pictures}
             />
           ))}
+        </div>
+        <div className={styles.titleWrapper}>
+          <div className={styles.titleOverlay}></div>
+          <h2>
+            Création de site web
+          </h2>
         </div>
       </div>
     </div>

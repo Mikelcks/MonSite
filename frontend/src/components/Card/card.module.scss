@@ -7,9 +7,9 @@
   width: 45%;
   min-height: 500px;
   min-width: 350px;
+  max-width: 750px;
   border: solid 1px #ff8c00;
   border-radius: 20px;
-  cursor: pointer;
 
   &:hover {
       box-shadow: 0 0 24px 8px rgba(255, 140, 0, 0.5);
@@ -34,12 +34,11 @@
   position: relative;
   width: 100%;
   max-width: 90%;
-  height: 20rem; /* Hauteur définie pour le carrousel */
+  height: 25rem;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: black; /* Couleur de fond noire pour les bandes */
 }
 
 .imageWrapper {
@@ -48,15 +47,15 @@
 }
 
 .imageWrapper > div {
-  flex: 0 0 100%; /* Chaque image prend toute la largeur de l'espace */
+  flex: 0 0 100%;
 }
 
 .cardPictures {
   width: 100%;
-  height: 100%; /* Assure que l'image occupe tout l'espace disponible */
-  object-fit: contain; /* L'image s'adapte à l'espace sans déformation */
+  height: 100%;
+  object-fit: contain;
   border-radius: 10px;
-  cursor: zoom-in; /* Changer le curseur au survol de l'image */
+  cursor: zoom-in;
 }
 
 .arrowButton {
@@ -65,7 +64,6 @@
   transform: translateY(-50%);
   background: transparent;
   border: none;
-  cursor: pointer;
   padding: 10px;
   z-index: 2;
 }
@@ -129,8 +127,9 @@
 .lightboxImage {
   width: 100%;
   height: auto;
+  max-height: 50%;
   border-radius: 10px;
-  object-fit: contain; /* L'image s'affiche complètement dans le lightbox */
+  object-fit: cover;
 }
 
 .closeButton {
@@ -141,7 +140,6 @@
   border: none;
   color: #ff8c00;
   font-size: 24px;
-  cursor: pointer;
 }
 
 .prevArrow,
@@ -153,7 +151,6 @@
   border: none;
   color: #ff8c00;
   font-size: 2rem;
-  cursor: pointer;
 }
 
 .prevArrow {
