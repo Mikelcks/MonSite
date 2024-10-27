@@ -1,5 +1,6 @@
 import React from 'react';
 import videoSrc from '../../assets/home.mp4';
+import { Lottie } from 'lottie-react';
 import performancePng from '../../assets/performance.png';
 import newWebsitePng from '../../assets/website.png'
 import seoPng from '../../assets/seo.png'
@@ -38,7 +39,12 @@ function Home() {
     </div>
 
     <div className={`${styles.imageTextRow} ${styles.reverse}`}>
-        <div className={styles.textWrapperRight}>
+        <div className={styles.imageWrapper}>
+            <div className={styles.image}>
+                <img src={performancePng} alt="Engrenages animés" className={styles.png} />
+            </div>
+        </div>
+        <div className={styles.textWrapper}>
             <div className={styles.text}>
                 <h2>PERFORMANCE & QUALITÉ</h2>
                 <div className={styles.separator}></div>
@@ -46,11 +52,6 @@ function Home() {
                     Je m'engage à optimiser chaque site pour garantir des performances maximales et une qualité irréprochable. Tous mes sites respectent les critères d'ergonomie et de design, assurant une expérience utilisateur fluide sur tous les appareils.
                     Lors de la création de votre site web, vous serez régulièrement informé de l'avancement de votre projet et aurez la possibilité de suivre les améliorations en temps réel, avant la mise en ligne. Votre satisfaction est ma priorité !
                 </p>
-            </div>
-        </div>
-        <div className={styles.imageWrapper}>
-            <div className={styles.image}>
-                <img src={performancePng} alt="Engrenages animés" className={styles.png} />
             </div>
         </div>
     </div>
