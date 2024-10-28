@@ -11,8 +11,8 @@ function Portfolio() {
   }, []);
 
   return (
-    <div className={styles.homeWrapper}>
-      <div className={styles.homeContainer}>
+    <div className={styles.portfolioWrapper}>
+      <div className={styles.portfolioContainer}>
         <div className={styles.titleWrapper}>
           <h2>
             Projets scolaires

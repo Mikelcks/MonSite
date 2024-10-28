@@ -4,6 +4,7 @@ import Skills from '../../components/Skills/index';
 
 function Bio() {
     return (
+        <div className={styles.maxWidth}>
         <div className={styles.globalContainer}>
             <div className={`${styles.globalContainer} ${styles.categoriesContainer}`}>
                 <div className={styles.titleWrapper}>
@@ -97,6 +98,7 @@ function Bio() {
                     <h2>CENTRES D'INTÉRÊTS</h2>
                 </div>
             </div> */}
+        </div>
         </div>
     )
 }

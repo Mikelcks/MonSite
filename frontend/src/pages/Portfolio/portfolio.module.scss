@@ -1,8 +1,13 @@
-.homeWrapper {
-    padding: 20px;
+.portfolioWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
   }
   
-  .homeContainer {
+  .portfolioContainer {
+    max-width: 1600px;
+    width: 100%;
     margin: 0 auto;
   }
   

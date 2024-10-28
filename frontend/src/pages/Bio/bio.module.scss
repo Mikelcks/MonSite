@@ -1,11 +1,15 @@
-.globalContainer {
-    p {
-    margin-left: 1rem;
-}
+.maxWidth {
+    display: flex;
+    justify-content: center;
 }
 
 .globalContainer {
     width: 100%;
+    max-width: 1600px;
+
+        p {
+        margin-left: 1rem;
+        }
 }
 
 .titleWrapper {
@@ -62,10 +66,9 @@
 .competencesContainer {
     display: flex;
     flex-direction: column;
-    width: 100%;
     align-items: center;
     box-sizing: border-box;
-
+    
     .skillsContainer {
         display: flex;
         flex-wrap: wrap;
@@ -73,7 +76,6 @@
         width: 100%;
         justify-content: space-between;
         box-sizing: border-box;
-        max-width: 1200px;
         margin-bottom: 10px;
     }
 
@@ -103,6 +105,7 @@
             & > p {
                 padding: 0 5PX;
                 margin: 5px 0;
+                background-color: none;
             }
         }
     }
