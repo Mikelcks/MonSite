@@ -17,7 +17,6 @@ function Header() {
         <div className={styles.headerBackground}>
             <nav className={styles.navbar}>
                 <p className={styles.title}>Mike LOCKS</p>
-                {/* Button to toggle the menu on small screens */}
                 <button 
                     className={styles.menuToggle} 
                     onClick={toggleMenu}
@@ -25,13 +24,12 @@ function Header() {
                 >
                     Menu
                 </button>
-                {/* Navigation list with animation */}
                 <ul className={`${styles.navList} ${isMenuOpen ? styles.open : ''}`}>
                     <li className={styles.navItem}>
                         <NavLink 
                             to="/" 
                             className={({ isActive }) => (isActive ? styles.active : undefined)}
-                            onClick={closeMenu} // Close the menu after selection
+                            onClick={closeMenu}
                         >
                             Home
                         </NavLink>

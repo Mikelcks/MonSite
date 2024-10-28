@@ -2,7 +2,7 @@
 import React from 'react';
 
 function Services() {
-    return <h1>Our Services</h1>;
+    return <h1>Page en construction</h1>;
 }
 
 export default Services;

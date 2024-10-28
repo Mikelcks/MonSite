@@ -21,6 +21,11 @@
             .progressText {
                 padding-left: 10px;
                 white-space: nowrap;
+                font-size: 1rem;
+
+                @media (max-width: 450px) {
+                    font-size: 0.8rem;
+                }
             }
         }
     }

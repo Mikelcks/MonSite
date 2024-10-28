@@ -43,7 +43,6 @@
     list-style-type: none;
     padding: 0;
     display: flex;
-    flex-wrap: wrap;
     gap: 30px;
 
     .navItem {
@@ -97,23 +96,19 @@
         position: absolute;
         top: 100%;
         right: 0;
-        gap: 5px;
-        display: none;
+        gap: 10px;
+        display: flex;
         flex-direction: column;
         width: auto;
         margin: 0 10px 0 0;
-        background-color: black;
-        transition: max-height 0.3s ease-in-out;
+        background-color: rgba(0, 0, 0, 0.8);
+        transition: max-height 1s ease-in-out;
         max-height: 0;
         overflow: hidden;
-        border: #FF8C00 solid 1px;
-    }
-
-    .navList.open {
-        display: flex;
-        max-height: 300px;
-        text-align: right;
-        padding: 0 10px;
-        z-index: 2;
+    
+        &.open {
+            max-height: 300px;
+            z-index: 2;
+        }
     }
 }
