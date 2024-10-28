@@ -77,7 +77,6 @@ const Card = ({ url, title, type, description, pictures }) => {
         }
     };
 
-    // Functions to go to previous and next images
     const goToPrevious = (e) => {
         e.stopPropagation();
         setCurrentIndex((prevIndex) => (prevIndex - 1 + pictures.length) % pictures.length);
@@ -101,8 +100,8 @@ const Card = ({ url, title, type, description, pictures }) => {
                 >
                     <div className={styles.textContainer}>
                         <h3 className={styles.cardTitle}>{title}</h3>
-                        <p className={styles.cardType}>Type : {type}</p>
-                        <p className={styles.cardDescription}>{description}</p>
+                        <p className={styles.cardText}>Type : {type}</p>
+                        <p className={styles.cardText}>{description}</p>
                     </div>
                     
                     <div className={styles.carouselContainer}>
