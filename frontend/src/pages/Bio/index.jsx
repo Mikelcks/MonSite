@@ -6,7 +6,7 @@ function Bio() {
     return (
         <div className={styles.maxWidth}>
         <div className={styles.globalContainer}>
-            <div className={`${styles.globalContainer} ${styles.categoriesContainer}`}>
+            <div className={`${styles.generalContainer} ${styles.categoriesContainer}`}>
                 <div className={styles.titleWrapper}>
                     <h2>GÉNÉRAL</h2>
                 </div>
