@@ -15,10 +15,15 @@
     font-weight: 300;
     color: #FF8C00;
     text-align: center;
+
+    @media (max-width: 650px) {
+      font-size: 1.5rem;
+    }
   }
 
   h2 {
     position: relative;
+    width: fit-content;
     z-index: 2;
     font-size: 2rem;
     color: #FF8C00;
@@ -27,8 +32,12 @@
     border: #FF8C00 solid 1px;
     border-radius: 10px;
     display: inline-block;
-    padding: 0 20px;
+    padding: 0 10px;
     margin: 10px;
+
+    @media (max-width: 650px) {
+      font-size: 1.5rem;
+    }
   }
 
   h3 {

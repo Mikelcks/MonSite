@@ -12,6 +12,10 @@
     max-width: 1400px;
     padding: 5px 20px;
     margin: 0;
+
+    @media (max-width: 650px) {
+        flex-direction: column;;
+    }
 }
 
 p {
@@ -41,7 +45,8 @@ p {
 
 .navItem {
     position: relative;
-    padding: 0 10px;
+    padding: 0 20px;
+    width: min-content;
 }
 
 .navItem:not(:last-child)::after {
