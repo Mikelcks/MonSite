@@ -1,11 +1,8 @@
 import React from 'react';
 import videoSrc from '../../assets/home.mp4';
 import Lottie from 'lottie-react';
-import performancePng from '../../assets/performance.png';
 import performance from '../../assets/performance.json'
-import newWebsitePng from '../../assets/website.png'
 import newWebsite from '../../assets/website.json'
-import seoPng from '../../assets/seo.png'
 import seo from '../../assets/seo.json'
 import styles from './home.module.scss';
 
@@ -17,11 +14,18 @@ function Home() {
           <source src={videoSrc} type="video/mp4" />
         </video>
         <div className={styles.overlayText}>
-          <h1>CRÉATION DE SITES INTERNET</h1>
+            <div className={styles.overlayTextTop}>
+                <h1>DÉVELOPPEMENT DE SITES WEB</h1>
+                <div className={styles.subtitle}>TRANSFORMEZ VOS IDÉES EN RÉALITÉ DIGITALE</div>
+            </div>
+            <div className={styles.overlayTextBot}>
+                <span className={styles.description}>Conception française, pour un site qui vous ressemble.</span>
+                <a href="/contact" className={styles.link}>Demander un devis</a>
+            </div>
         </div>
-      </div>
+    </div>
 
-      <section className={styles.content}>
+    <section className={styles.content}>
       <div className={styles.imageTextRow}>
         <div className={styles.imageWrapper}>
             <div className={styles.image}>
