@@ -1,9 +1,12 @@
 import React from 'react';
 import videoSrc from '../../assets/home.mp4';
-import { Lottie } from 'lottie-react';
+import Lottie from 'lottie-react';
 import performancePng from '../../assets/performance.png';
+import performance from '../../assets/performance.json'
 import newWebsitePng from '../../assets/website.png'
+import newWebsite from '../../assets/website.json'
 import seoPng from '../../assets/seo.png'
+import seo from '../../assets/seo.json'
 import styles from './home.module.scss';
 
 function Home() {
@@ -22,7 +25,7 @@ function Home() {
       <div className={styles.imageTextRow}>
         <div className={styles.imageWrapper}>
             <div className={styles.image}>
-                <img src={newWebsitePng} alt="New webSite" className={styles.png} />
+                <Lottie animationData={newWebsite} loop={true} />
             </div>
         </div>
         <div className={styles.textWrapper}>
@@ -41,7 +44,7 @@ function Home() {
     <div className={`${styles.imageTextRow} ${styles.reverse}`}>
         <div className={styles.imageWrapper}>
             <div className={styles.image}>
-                <img src={performancePng} alt="Engrenages animés" className={styles.png} />
+                <Lottie animationData={performance} loop={true} />
             </div>
         </div>
         <div className={styles.textWrapper}>
@@ -59,7 +62,7 @@ function Home() {
     <div className={styles.imageTextRow}>
         <div className={styles.imageWrapper}>
             <div className={styles.image}>
-                <img src={seoPng} alt="SEO" className={styles.png} />
+                <Lottie animationData={seo} loop={true} />
             </div>
         </div>
         <div className={styles.textWrapper}>
