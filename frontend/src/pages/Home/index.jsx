@@ -1,5 +1,4 @@
 import React from 'react';
-import videoSrc from '../../assets/home.mp4';
 import Lottie from 'lottie-react';
 import performance from '../../assets/performance.json'
 import newWebsite from '../../assets/website.json'
@@ -11,7 +10,8 @@ function Home() {
     <div className={styles.homeWrapper}>
       <div className={styles.videoBackground}>
         <video autoPlay loop muted className={styles.video} playsInline>
-          <source src={videoSrc} type="video/mp4" />
+        <source src="/videos/home.mp4" type="video/mp4" />
+
         </video>
         <div className={styles.overlayText}>
             <div className={styles.overlayTextTop}>
