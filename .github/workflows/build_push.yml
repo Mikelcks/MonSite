@@ -29,3 +29,7 @@ jobs:
           push: true
           tags: antoinepryy/mikelocks:latest  # Docker Hub image and tag
           platforms: linux/amd64
+
+      - name: Log Build Directory Contents
+        run: ls -R ./frontend/build
+
