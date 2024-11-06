@@ -9,6 +9,7 @@
 
         p {
         margin: 1rem;
+        padding: 0 10px;
         }
 }
 
@@ -89,8 +90,7 @@
         flex-wrap: wrap;
         gap: 20px;
         width: 100%;
-        justify-content: space-between;
-        box-sizing: border-box;
+        justify-content: center;
         margin-bottom: 10px;
     }
 
@@ -112,7 +112,7 @@
             justify-content: baseline;
 
             & > p {
-                padding: 0 5PX;
+                padding: 0 5px;
                 margin: 5px 0;
                 background-color: none;
             }

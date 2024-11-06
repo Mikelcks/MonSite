@@ -92,9 +92,6 @@
   background: linear-gradient(to bottom, #000000, #5b5b5b),
   linear-gradient(to right, #444444, #5b5b5b5b);
   background-blend-mode: multiply;
-
-  @media (max-width: 650px) {
-  }
 }
 
 .textWrapper {
@@ -206,9 +203,42 @@
   align-items: flex-end;
 }
 
-.bottomText {
-  padding: 50px 20px;
-  background-color: #333;
-  color: white;
+.stepsContainer {
   text-align: center;
+  background: linear-gradient(to right, #101010, #444444 50%, #101010),
+  linear-gradient(to top, #000000, white);
+  background-blend-mode: multiply;
+  padding: 50px 20px;
+
+  @media (max-width: 650px) {
+    background: linear-gradient(to bottom, #000000, #444444 50%, #000000);
+  }
+}
+
+.title {
+  font-size: 2em;
+  margin-bottom: 30px;
+  color: #FF8C00;
+  border: none;
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .stepsGrid {
+      grid-template-columns: 1fr 1fr;
+  }
+}
+
+.step {
+  padding: 20px;
+}
+
+.step p {
+  color: #e0e0e0;
+  line-height: 1.6;
 }

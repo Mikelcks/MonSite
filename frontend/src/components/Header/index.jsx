@@ -34,7 +34,7 @@ function Header() {
                             Home
                         </NavLink>
                     </li>
-                    <li className={styles.navItem}>
+                    {/* <li className={styles.navItem}>
                         <NavLink 
                             to="/services" 
                             className={({ isActive }) => (isActive ? styles.active : undefined)}
@@ -42,7 +42,7 @@ function Header() {
                         >
                             Services
                         </NavLink>
-                    </li>
+                    </li> */}
                     <li className={styles.navItem}>
                         <NavLink 
                             to="/portfolio" 
