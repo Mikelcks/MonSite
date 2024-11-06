@@ -1,28 +1,44 @@
+// backend/app.js
 const express = require('express');
-const path = require('path');
+const nodemailer = require('nodemailer');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 require('dotenv').config();
-
-const projectRoutes = require('./routes/project');
-const userRoutes = require('./routes/user');
 
 const app = express();
 
-// Middleware pour parser le JSON
-app.use(express.json());
+app.use(cors());
+app.use(bodyParser.json());
 
-// Middleware CORS
-app.use((req, res, next) => {
-   res.setHeader('Access-Control-Allow-Origin', '*');
-   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
-   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-   next();
+// Route pour gérer l'envoi de l'e-mail
+app.post('/send-email', async (req, res) => {
+    const { name, email, message } = req.body;
+
+    // Configuration de Nodemailer
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS,
+        },
+    });
+
+    // Définition des options de l'e-mail
+    const mailOptions = {
+        from: email,
+        to: process.env.EMAIL_USER,
+        subject: `Nouveau message de ${name}`,
+        text: `Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`, 
+    };
+
+    // Envoi de l'e-mail via Nodemailer
+    try {
+        await transporter.sendMail(mailOptions);
+        res.status(200).json({ message: 'Email envoyé avec succès!' });
+    } catch (error) {
+        console.error('Erreur lors de l\'envoi de l\'e-mail:', error);
+        res.status(500).json({ message: 'Erreur lors de l\'envoi de l\'e-mail' });
+    }
 });
-
-// Utiliser les routes
-app.use('/api/projects', projectRoutes);
-app.use('/api/auth', userRoutes);
-
-// Middleware pour servir les fichiers statiques
-app.use('/assets', express.static(path.join(__dirname, 'src/assets'))); // Ajout de cette ligne
 
 module.exports = app;

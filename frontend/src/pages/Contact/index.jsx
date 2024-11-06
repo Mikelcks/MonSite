@@ -6,11 +6,31 @@ const Contact = () => {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        
-        console.log({ name, email, message });
-        
+
+        const formData = { name, email, message };
+
+        try {
+            const response = await fetch('http://localhost:5000/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                console.log('Email envoyé:', data);
+            } else {
+                console.log('Erreur:', data.message);
+            }
+        } catch (error) {
+            console.log('Erreur lors de l\'envoi:', error);
+        }
+
         setName('');
         setEmail('');
         setMessage('');

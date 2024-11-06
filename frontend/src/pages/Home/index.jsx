@@ -40,7 +40,8 @@ function Home() {
                             Ne laissez pas vos concurrents vous devancer ! Offrez à votre entreprise un site web sur mesure qui reflète votre identité et engage vos visiteurs. Contactez-moi pour donner vie à votre projet et transformer votre présence en ligne en un véritable atout.
                         </p>
                         <div className={styles.separator}></div>
-                        <a href="/services" className={styles.link}>En savoir plus sur nos services</a>
+                        {/* <a href="/services" className={styles.link}>En savoir plus sur nos services</a> */}
+                        <a href="/contact" className={styles.link}>Prenez contact avec moi</a>
                     </div>
                 </div>
             </div>
@@ -77,7 +78,8 @@ function Home() {
                             Si nécessaire, je peux également vous proposer une campagne Google Ads pour maximiser votre visibilité. Grâce à un SEO de qualité, votre site sera mieux référencé, attirant de nouveaux clients et augmentant le nombre de visiteurs.
                         </p>
                         <div className={styles.separator}></div>
-                        <a href="/services" className={styles.link}>En savoir plus sur nos services</a>
+                        {/* <a href="/services" className={styles.link}>En savoir plus sur nos services</a> */}
+                        <a href="/contact" className={styles.link}>Prenez contact avec moi</a>
                     </div>
                 </div>
             </div>
